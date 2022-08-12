@@ -1,0 +1,23 @@
+{% extends 'molde.html' %}
+
+{% block 'titulo' %} Aluno {% endblock %}
+
+{% block 'conteudo' %} 
+    <h2>Lista de Alunos</h2>
+
+    <table class="table">
+        <thead>
+            <td>Nome</td>
+            <td>Telefone</td>
+            <td>Opções</td>
+        </thead>
+        {%for aluno in alunos%}
+        <tr>
+            <td>{{aluno.nome}}</td>
+            <td>{{aluno.telefone}}</td>
+            <td><a class="btn btn-primary" href="">Editar</a></td>
+            <td><a class="btn btn-danger" href="">Excluir</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+{% endblock %}

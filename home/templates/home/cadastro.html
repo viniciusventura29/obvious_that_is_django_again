@@ -1,0 +1,82 @@
+{% extends 'molde.html' %} 
+{% load bootstrap5 %}
+{% block 'titulo' %} Cadastro {% endblock %} 
+{% block 'conteudo' %}
+<h2>Cadastro</h2>
+{% bootstrap_css %}
+{% bootstrap_messages %}
+
+<form method="post" action="">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputText1" class="form-label">Nome de Usuário</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputText1"
+      aria-describedby="textHelp"
+      name="usuario"
+      value="{{request.POST.usuario}}"
+    />
+    <div class="mb-3">
+      <label for="exampleInputText1" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputText1"
+        aria-describedby="textHelp"
+        name="email"
+        value="{{request.POST.email}}"
+      />
+      <div class="mb-3">
+        <label for="exampleInputText1" class="form-label">Primeiro nome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputText1"
+          aria-describedby="textHelp"
+          name="primeiro"
+          value="{{request.POST.primeiro}}"
+        />
+        <div class="mb-3">
+          <label for="exampleInputText1" class="form-label">Segundo nome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputText1"
+            aria-describedby="textHelp"
+            name="segundo"
+            value="{{request.POST.segundo}}"
+          />
+    <div id="textHelp" class="form-text">
+      We'll never share your Username with anyone else.
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password 1</label>
+    <input
+      type="password"
+      class="form-control"
+      name="senha1"
+      id="exampleInputPassword1"
+      
+    />
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password 2</label>
+      <input
+        type="password"
+        class="form-control"
+        name="senha2"
+        id="exampleInputPassword1"
+      />
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-success">Cadastrar</button>
+  <a href="{% url 'usuario_login' %}" class="btn btn-secondary">Login</a>
+</form>
+
+{% endblock %}

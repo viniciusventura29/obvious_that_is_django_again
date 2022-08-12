@@ -1,0 +1,21 @@
+{% extends 'molde.html' %}
+{% load bootstrap5 %}
+{% block 'titulo' %} Cadastrar Aluno {% endblock %}
+
+{% block 'conteudo' %} 
+    <h2>Aluno cadastro</h2>
+
+    {% bootstrap_css %}
+    {% bootstrap_messages %}
+
+    <form action="" method="post" class="form">
+{%csrf_token%}
+{% bootstrap_form form %}
+
+        {% buttons %}
+        <button type="submit" class="btn btn-success">Salvar</button>
+        {% endbuttons %}
+
+    </form>
+
+{% endblock %}

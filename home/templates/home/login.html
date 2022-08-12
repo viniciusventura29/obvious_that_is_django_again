@@ -1,0 +1,41 @@
+{% extends 'molde.html' %} {% block 'titulo' %} Login {% endblock %} 
+{% load bootstrap5 %}
+{% block 'conteudo' %}
+<h2>Login</h2>
+{% bootstrap_css %}
+{% bootstrap_messages %}
+
+<form method="post" action="">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputText1" class="form-label">Usuário</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputText1"
+      aria-describedby="textHelp"
+      name="login"
+      value="{{request.POST.login}}"
+    />
+    <div id="textHelp" class="form-text">
+      We'll never share your Username with anyone else.
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      name="senha"
+      id="exampleInputPassword1"
+    />
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-success">Login</button>
+  <a href="{% url 'usuario_cadastro' %}" class="btn btn-secondary">Cadastro</a>
+</form>
+
+{% endblock %}
